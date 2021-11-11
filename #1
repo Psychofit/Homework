@@ -1,0 +1,23 @@
+using System;
+
+namespace ConsoleApp29
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i < a+1; i++)
+            {
+                for (int j = 1; j < i+1; j++)
+                {
+                    Console.Write("*");
+                    
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+
+        }
+    }
+}
