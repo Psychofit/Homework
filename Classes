@@ -1,0 +1,66 @@
+using System;
+
+namespace ConsoleApp27
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool f = true;                                                                                          // Логическая перменная-флаг
+            do
+            {
+                int chislo = 0;                                                                                     // Объявляем переменную "число"
+                while (true)
+                {
+                    Console.WriteLine("Введите число от 1 до 11\n");                                                 // Выводим условие ввода
+                    var str = Console.ReadLine();                                                                   // Вводим число
+                    if (int.TryParse(str, out chislo))                                                              // Пытаемся распарсить
+                    {
+                        break;                                                                                      // Если все ок, то выходим из цикла
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Введенные данные не являются натуральным числом числом! Попробуй еще раз!\n");                // Если нет, то  сообщаем об ошибке
+                    }
+                }
+                switch (chislo)                                                                                     // Проверяем содержимое переменной
+                {
+                    default:
+                        Console.WriteLine("Введенное число не принадлежит отрезку [ 1 ; 11] !!!\n");                   // Если число не уд. условию
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        Console.WriteLine("----====|| НАЧАЛЬНЫЕ КЛАССЫ ||====----\n");                                      
+                        break;
+                    case 5:                        
+                    case 6:                        
+                    case 7:
+                    case 8:
+                        Console.WriteLine("----====|| СРЕДНИЕ КЛАССЫ ||====----\n");                                       
+                        break;
+                    case 9:                        
+                    case 10:
+                        Console.WriteLine("----====|| СТАРШИЕ КЛАССЫ ||====----\n");                                       
+                        break;
+                    case 11:
+                        Console.WriteLine("----====|| ВЫПУСКНЫЕ КЛАССЫ ||====----\n");                                    
+                        break;
+                }
+                Console.WriteLine("Для выхода нажмите Escape\n\nДля ввода новых данных нажмите Enter \n ");             // Взаимодействие с пользовоталем 
+                ConsoleKey button = Console.ReadKey().Key;                                                          // Закрыть\перезапустить программу
+                switch (button)
+                {
+                    case ConsoleKey.Escape:                                                                         // Если нажали Esc флаг = 0, выход из цикла
+                        f = false;
+                        break;
+                    case ConsoleKey.Enter:                                                                          // если нажали Enter, очищаем консоль и идет следущая итерация 
+                        Console.Clear();
+                        break;
+                }
+            } while (f);
+        }
+    }
+}
